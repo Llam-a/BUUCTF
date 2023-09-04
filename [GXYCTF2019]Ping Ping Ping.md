@@ -22,5 +22,6 @@ Lụm key
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/1cbd893c-aa9a-46e3-862e-f384b6d61001)
 
+Write up mình tham khảo : https://blog.csdn.net/vanarrow/article/details/108295481
 
 
