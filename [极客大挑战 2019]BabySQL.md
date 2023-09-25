@@ -3,7 +3,6 @@
 Ta có form challenge. Mình sẽ thử inject cơ bản 
 
 `user: 1' or 1=1-- -
-
 pass: 1' or 1=1-- -`
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/a1fdb887-10a1-48d8-bb17-ca4c3d2b11df)
