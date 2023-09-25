@@ -1,4 +1,4 @@
-![image](https://github.com/Llam-a/BUUCTF/assets/115911041/34189a21-6f0a-4c7a-b5e6-d5301ceb344e)![image](https://github.com/Llam-a/BUUCTF/assets/115911041/7374a48a-8fb4-4505-82ac-ef5473117bf1)
+[image](https://github.com/Llam-a/BUUCTF/assets/115911041/7374a48a-8fb4-4505-82ac-ef5473117bf1)
 
 Ta có form challenge. Mình sẽ thử inject cơ bản 
 
