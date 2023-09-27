@@ -30,7 +30,7 @@ Ta thấy rằng biểu thức mà ta nhập vào được xử lí qua file cal
 
 Vậy thì ta được cách sau: `http:///wwww.example.com/index?php? num=aaa`
 
-Theo cách này WAF, Không thể tìm biến num, bởi vì hiện tại biến `"num"`, không phải `" num"`.Nhưng khi PHP phân tích, nó sẽ remove đi khoảng trắng và code ta sẽ chạy được.
+Theo cách này WAF, Không thể tìm biến num, bởi vì hiện tại biến `" num"`, không phải `"num"`.Nhưng khi PHP phân tích, nó sẽ remove đi khoảng trắng và code ta sẽ chạy được.
 
 ## WAF
 - Để đảm bảo tính an toàn và bảo mật, nhiều tường lửa ứng dụng web (WAF) sẽ theo dõi và kiểm tra dữ liệu được truyền qua URL để ngăn chặn các tấn công tiềm ẩn như thực thi mã độc hại.
