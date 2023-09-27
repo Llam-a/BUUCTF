@@ -20,7 +20,7 @@ Ta thấy rằng biểu thức mà ta nhập vào được xử lí qua file cal
   
 - Đáng chú ý rằng chuỗi truy vấn có thể loại bỏ hoặc thay thế khoảng trắng bằng gạch dưới trong quá trình phân tích. Ví dụ `/?%20news|id%00=42` sẽ được chuyển đổi thành `Array[news_id] => 42)`. 
 
-- Nếu có một quy tắc trong hệ thống IDS/IPS hoặc bảo mật ứng dụng (WAF) mà chặn truy cập khi giá trị của tham số news_id không phải là một giá trị số, thì chúng ta có thể tận dụng lỗ hổng này để bypass.Ví dụ `/news.php?%20news[id%00]=42"+AND+1=0--`. Giá trị của tham số `?%20news[id%00` sẽ được lưu ở `$_GET["news_id"]`
+- Nếu có một quy tắc trong hệ thống IDS/IPS hoặc bảo mật ứng dụng (WAF) mà chặn truy cập khi giá trị của tham số news_id không phải là một giá trị số, thì chúng ta có thể tận dụng lỗ hổng này để bypass.Ví dụ `/news.php?%20news[id%00]=42"+AND+1=0--`. Giá trị của tham số `?%20news[id%00]` sẽ được lưu ở `$_GET["news_id"]`
 
 - PHP cần chuyển đổi tất cả các tham số thành tên biến hợp lệ, vì vậy khi phân tích chuỗi truy vấn, nó thực hiện hai điều sau:
 
@@ -33,8 +33,9 @@ Vậy thì ta được cách sau: `http:///wwww.example.com/index?php? num=aaa`
 Theo cách này WAF, Không thể tìm biến num, bởi vì hiện tại biến `"num"`, không phải `" num"`.Nhưng khi PHP phân tích, nó sẽ remove đi khoảng trắng và code ta sẽ chạy được.
 
 ## WAF
+- Để đảm bảo tính an toàn và bảo mật, nhiều tường lửa ứng dụng web (WAF) sẽ theo dõi và kiểm tra dữ liệu được truyền qua URL để ngăn chặn các tấn công tiềm ẩn như thực thi mã độc hại.
 
-- Có vẻ như WAF không thể nhìn thấy chúng ta, và mình nghĩr mã nguồn trong câu hỏi đó là WAF. Hơn nữa, WAF không có nghĩa là tiêu đề được viết bằng PHP, sau đó WAF phải được viết bằng PHP. Điều này chính xác là vì vậy, WAF trong câu hỏi này sẽ không nhận diện rằng `"num"` và `" num"` thực sự là giống nhau.
+- Có vẻ như WAF không thể nhìn thấy chúng ta, và mình nghĩ source trong câu hỏi đó là WAF. Hơn nữa, WAF không có nghĩa là tiêu đề được viết bằng PHP, sau đó WAF phải được viết bằng PHP. Điều này chính xác là vì vậy, WAF trong câu hỏi này sẽ không nhận diện rằng `"num"` và `" num"` thực sự là giống nhau.
 
 # Payload
 
@@ -45,4 +46,5 @@ Theo cách này WAF, Không thể tìm biến num, bởi vì hiện tại biến
 
 - Giải thích:
 -var_dump(scandir(chr(47)) giúp ta liệt kê ra toàn bộ các thư mục dưới đường dẫn /. Bởi vì kí tự `/` đã bị filter trong Blacklist nên ta sử dụng `(chr(47)`.
-  
+
+-Trong trường hợp này, việc thêm một khoảng trắng trước "num" trong URL giúp lừa WAF. PHP sẽ xem xét nó như là một tham số hợp lệ và không thấy sự thay đổi đặc biệt, trong khi WAF có thể bỏ qua nó hoặc xem xét nó như một tham số trống rỗng, dẫn đến việc tránh được phát hiện của WAF.  
