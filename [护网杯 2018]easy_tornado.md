@@ -52,7 +52,13 @@ Ta được: `/file?filename=/fllllllllllllag&filehash=615ce0a3b27ca20b0733e5725
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/e1d7de1c-f269-457a-81d2-65d75a4a40ce)
 
+Read 
 
+https://www.tornadoweb.org/en/stable/guide/structure.html
+
+https://www.tornadoweb.org/en/stable/web.html#tornado.web.RequestHandler.application
+
+https://www.tornadoweb.org/en/stable/web.html#tornado.web.RequestHandler.settings
 
 
 
