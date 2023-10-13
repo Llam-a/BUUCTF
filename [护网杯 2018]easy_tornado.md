@@ -1,4 +1,4 @@
-Challenge cho ta 3 đuồng dẫn
+Challenge cho ta 3 luồng dẫn
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/a2a056ea-5309-49dd-8649-72468063f2b7)
 
