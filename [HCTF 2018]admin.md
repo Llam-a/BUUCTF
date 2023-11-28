@@ -26,7 +26,7 @@ Mình tiếp tục tìm xem có gì đặc biệt ko.
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/d419cee0-2da3-4d27-ae60-de0d28560591)
 
-Cái này ở file `user.sql`, khá đúng với việc ta cần làm chỉ cần decode cookie thành admin r sumbit vào là có được flag.Và để decode và encode cookie mình dùng tool [ở đây](https://github.com/noraj/flask-session-cookie-manager}.
+Cái này ở file `user.sql`, khá đúng với việc ta cần làm chỉ cần decode cookie thành admin r sumbit vào là có được flag.Và để decode và encode cookie mình dùng tool [ở đây](https://github.com/noraj/flask-session-cookie-manager).
 
 `decode:  python3 flask_session_cookie_manager3.py decode -c '[cookie]' -s '[secret key]`
 
