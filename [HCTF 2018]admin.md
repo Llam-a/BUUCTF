@@ -12,7 +12,7 @@ Nó hiện ra 4 trường `index`, `post`, `change password` và `logout`.Mình 
 index ---> <!-- you are not admin -->
 change password ---> <!-- https://github.com/woadsl1234/hctf_flask/ -->
 ```
-Đầu tiên với index, thì mình nghĩ liên quan đến cookie thì check nhưng nó ko phải JWT
+Đầu tiên với index, thì mình nghĩ liên quan đến cookie.
 
 `.eJw9kEFrg0AQhf9K2XMOcdVLIIcWrRiYFcMYmb0EG43u6qbFJGg25L93m0IODwYe7-PNu7P9cWzOHVtdxmuzYHtVs9WdvX2xFSOMZ4lyALtRWUQB2X6WZboEU_gyOnCpi0lqCMCKQSa5l0VbQ3zTAcY30puOsJiJxwHghyLbKTIUCk5-hludYR86xkRl7gmEkEx6kzqfMmwt4E5BCb7EwTHIk2U-QfLZgd52YFsOmkJA8ID_ZXPXBdbssWCH83jcX7775vR6Qdh6IGwDYcgXScqzsuDCprPA2JeJ6N3t6tRKRO9-5iQSCmBaP3HKVG3zIqH3s6vbf-dUGWewYahMxRbsem7G527MW7LHL-iWa5o.ZWQE7w.L4_WPe0tSagYUEl2oqDvM_fthDc`
 
