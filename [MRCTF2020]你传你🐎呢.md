@@ -18,13 +18,16 @@ Vậy là upload đã thành công, challenge này thuộc blacklist filter các
 
 Bài này mình sẽ làm theo hướng ghi đè qua 1 file `.htaccess`
 
-![image](https://github.com/Llam-a/BUUCTF/assets/115911041/0dc9e4ef-8398-4959-bf32-0597498859c4)
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/ab72dd76-6e3c-42e8-abfc-9bdc801f279f)
 
 Lúc này tất cả các file có đuôi là hack sẽ được execute dưới dạng file php.
 
 Tiếp theo thì mình upload Trojan bình thường thôi
 
-![image](https://github.com/Llam-a/BUUCTF/assets/115911041/32bdac75-dba1-4220-ade7-04f9c812eb33)
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/af4cb163-3ab5-44b2-9eec-20a26d702a05)
 
 Dùng antsword để đọc flag
+
+![Screenshot 2024-01-02 173054](https://github.com/Llam-a/BUUCTF/assets/115911041/21d4ebd0-a689-41d9-a93b-6357f56b3ac7)
+
 
