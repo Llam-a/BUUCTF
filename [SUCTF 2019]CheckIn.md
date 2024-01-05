@@ -49,6 +49,13 @@ auto_prepend_file=test.png
 
 Tiếp theo mình upload file Trojan
 
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/27de0386-16ab-4cbe-ac4c-01df30571c3d)
+
+Sau đó dùng antsword để đọc file
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/2459e400-fd5e-4b25-96a3-73e736a72bb2)
+
+
 
 
 
