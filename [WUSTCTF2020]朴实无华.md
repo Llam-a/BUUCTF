@@ -64,5 +64,58 @@ if (isset($_GET['get_flag'])){
 
 Bây giờ thì chúng ta phải bypass từng level thôi.
 
-Đối với level 1
+Đối với level 1, nó sẽ kiểm tra num có được truyền qua tham số GET hay không.Tiếp theo nó sẽ kiểm tra $num có nhỏ hơn 2020 và giá trị của ($num + 1) có lớn hơn 2021 không.Để ý rằng trong cái if đó sử dụng hàm intval() - được sử dụng để chuyển đổi một giá trị thành một số nguyên (integer).
+
+Nhưng mà sau khi mình test thì lỗi hàm intval() chỉ xuất hiện ở lỗi phiên bản php version 7.0 trở xuống
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/70e88c01-4b20-46d6-b27f-40ae67c586cf)
+
+
+Vậy thì `?num=2e4`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/ab452a36-a720-4c59-b0d2-d8f563cf0826)
+
+Tiếp theo với level 2,nó sẽ so sánh với biến $md5 ta nhập vào với md5($md5) và nó sử dụng loose comparision `==` để so sánh vd: `123=123asdsdfas`.Vậy thì ta cần tìm giá trị cho biến md5 sao cho khi md5 hash lên thì có giá trị đầu bằng biến md5.Trong PHP, có 1 chuỗi nếu bắt đầu là `0e`, thì chuỗi đó là 0.Vậy thì ta cần tìm giá trị cho md5 có đầu là 0e và sau khi md5 thì cũng có đầu là 0e.Do md5 có rất nhiều magic nên mình tìm [ở đây](https://github.com/spaze/hashes/blob/master/md5.md) khá lâu.
+
+Hoặc python script:
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/89d5e60d-6006-433f-a846-db2c98159785)
+
+`md5=0e215962017`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/d9ba7996-b5d1-4698-b529-ac9868343590)
+
+Tiếp theo là level cuối
+
+```php
+if (isset($_GET['get_flag'])){
+    $get_flag = $_GET['get_flag'];
+    if(!strstr($get_flag," ")){
+        $get_flag = str_ireplace("cat", "wctf2020", $get_flag);
+        echo "鎯冲埌杩欓噷, 鎴戝厖瀹炶€屾鎱�, 鏈夐挶浜虹殑蹇箰寰€寰€灏辨槸杩欎箞鐨勬湸瀹炴棤鍗�, 涓旀灟鐕�.</br>";
+        system($get_flag);
+    }else{
+        die("蹇埌闈炴床浜�");
+    }
+}else{
+    die("鍘婚潪娲插惂");
+}
+```
+
+Ở lệnh if đầu tiên nó sẽ kiểm tra xem giá trị của $get_flag có chứa khoảng trắng hay không.Tiếp theo là hàm str_ireplace() để thay thế chuỗi "cat" bằng chuỗi "wctf2020" trong biến $get_flag. Hàm này thực hiện việc thay thế không phân biệt chữ hoa chữ thường (case-insensitive).
+
+Mình thử dùng lệnh ls để kiểm tra 
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/4a5a9c78-d264-4127-81d4-3491e4d00671)
+
+Vậy là ở level này chúng ta phải RCE, để bypass khoảng cách thì sử dụng `$IFS$9`.Còn lênh cat ta có thể sử dụng lệnh khác `tail` hoặc `ca\t`
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/914a90b9-ef26-4694-808c-dfbc716cebdb)
+
+
+
+
+
+
+
 
