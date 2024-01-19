@@ -26,7 +26,7 @@ Kết quả trả về là 1 dãy base64.Sau khi decode.
 				?>
 ```
 
-Vậy thì input `Category` bắt buộc phải có `woofers`, `meowers` hoặc `index`.
+Đầu tiên giá trị của tham số `category` được truyền trong URL cho biến $file.Sau đó nó kiểm tra xem chuỗi biến $file có chứa các từ `woofers`, `meowers` hoặc `index` không. Nếu chuỗi $file chứa ít nhất một trong ba từ này, hoặc là `woofers`, hoặc là `meowers`, hoặc là `index`, thì điều kiện sẽ trả về true.Sau đó thì nó sẽ mở một file php tương ứng với giá trị của biến file.Vì ta cần flag nên thử để giá trị của file là flag xem sao.
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/d21adce0-8f88-42e2-b70c-8ad2a00fe5b1)
 
