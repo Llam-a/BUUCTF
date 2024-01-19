@@ -26,7 +26,7 @@ Kết quả trả về là 1 dãy base64.Sau khi decode.
 				?>
 ```
 
-Vậy thì input `Category` bắt buộc phải có `woofers`, `meowers`.
+Vậy thì input `Category` bắt buộc phải có `woofers`, `meowers` hoặc `index`.
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/d21adce0-8f88-42e2-b70c-8ad2a00fe5b1)
 
