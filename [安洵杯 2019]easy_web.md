@@ -85,11 +85,11 @@ Tiếp theo nó sẽ kiểm tra hai tham số `img` và `cmd` có tồn tại tr
 
 Và giá trị của `img` được base64 2 lần và chuyển thành chuỗi hex được gán cho biến file.Các giá được trong biến file sẽ được filter `"/[^a-zA-Z0-9.]+/", ""`.Và nó sẽ kiểm tra chuỗi của biến file có từ flag hay ko, nếu có nó sẽ in ra `xixi～ no flag`.Nếu không thì nó sẽ đọc cái biến file decode sang base64 rồi lưu trong biến txt.Sau đó thì nó in ra 1 hình ảnh và content của hình ảnh đó được lấy từ biến txt.Sau đó in ra giá trị biễn $cmd.
 
-Tới cái if tiếp theo nó sẽ filter khá nhiều lệnh trong biến cmd.Nếu ko có thì nó sẽ chuyển sang cái if tiếp theo. Nó sẽ kiểm tra hai biến a và b có khác nhau và có cùng giá trị hàm băm md5 hay không.Nếu điều kiện này đúng thì nó in ra câu lệnh được lưu trong biến cmd.Khi nó so sánh hàm băm thì nó dùng strict comparison.
+Tới cái if tiếp theo nó sẽ filter khá nhiều lệnh trong biến cmd.Nếu ko có thì nó sẽ chuyển sang cái if tiếp theo. Nó sẽ kiểm tra hai biến a và b có khác nhau và có cùng giá trị hàm băm md5 hay không.Nếu điều kiện này đúng thì nó in ra câu lệnh được lưu trong biến cmd.Khi nó so sánh hàm băm thì nó dùng strict comparison.Do đó ta không thể làm theo cách chuyển a và b sang kiểu array bởi vì nó đã ép thành kiểu string.
 
-Sau một hồi research thì mình tìm được chuổi md5 collision này sau khi url decode thì qua hàm băm sẽ bằng nhau nhưng giá trị ban đầu nó khác nhau.
+Sau một hồi research thì mình tìm được chuỗi md5 collision này sau khi url decode thì qua hàm băm sẽ bằng nhau nhưng giá trị ban đầu nó khác nhau.
 
-Mình vô tình search thấy được cái này, cũng ko hiểu tại sao nó sử dụng được.Ban đầu mình có lấy md5 collision để làm nhưng ko cho kết quả là mấy.
+Nhưng phải chuyển qua dạng urlencode. Đổi khoảng cách thành %.
 
 ```
 a=%4d%c9%68%ff%0e%e3%5c%20%95%72%d4%77%7b%72%15%87%d3%6f%a7%b2%1b%dc%56%b7%4a%3d%c0%78%3e%7b%95%18%af%bf%a2%00%a8%28%4b%f3%6e%8e%4b%55%b3%5f%42%75%93%d8%49%67%6d%a0%d1%55%5d%83%60%fb%5f%07%fe%a2
