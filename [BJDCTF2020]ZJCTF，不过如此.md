@@ -42,7 +42,7 @@ function complex($re, $str) {
 ```
 Cú pháp của `preg_replace($pattern, $replacement, $subject);`.Nói cho dễ hiều thì ví dụ `preg_replace(1,2,3)` thì 3 sẽ đi tìm 1 bên trong 3 và từ đó thay đổi cái vừa tìm được thành 2. Điểm quan trọng là `/e`, 'ei' của hàm preg_replace() cho phép sử dụng regex là một biểu thức PHP và kiểu chữ thường trong kết quả thay thế.
 
-Mình có đọc wu [ở đây](https://xz.aliyun.com/t/2557) để hiểu thêm cách bypass `preg_replace()\e`
+Mình có đọc wu [ở đây](https://xz.aliyun.com/t/2557) để hiểu thêm cách bypass `preg_replace()/e`
 
 Theo wu đó thì mình sử dụng `. *` để bypass ví dụ
 
