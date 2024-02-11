@@ -1,3 +1,4 @@
+'''python
 import flask
 import os
   
@@ -21,3 +22,4 @@ def shrine(shrine):
   
 if __name__ == '__main__':
     app.run(debug=True)
+'''
