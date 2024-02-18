@@ -35,3 +35,7 @@ Payload:
 
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/ea741871-605e-4915-872a-b01a047e5a3a)
 
+Reference: 
+
+https://www.foregenix.com/blog/introducing-xor-based-sql-injection?hs_amp=true
+
