@@ -49,5 +49,5 @@ Cuối cùng dùng hàm highlight_file() hoặc show_source để đọc file
 
 Reference:
 
-https://www.php.net/manual/en/regexp.reference.recursive.php
+https://www.rexegg.com/regex-recursion.html
 
