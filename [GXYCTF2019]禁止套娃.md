@@ -47,3 +47,7 @@ Cuối cùng dùng hàm highlight_file() hoặc show_source để đọc file
 ![image](https://github.com/Llam-a/BUUCTF/assets/115911041/7953817c-7124-460a-b634-d02413073db3)
 
 
+Reference:
+
+https://www.php.net/manual/en/regexp.reference.recursive.php
+
